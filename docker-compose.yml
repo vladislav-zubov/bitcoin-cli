@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    volumes:
+      - .:/app
+      - bundle:/app/vendor/bundle
+    environment:
+      BUNDLE_PATH: /app/vendor/bundle
+      PATH: "/app/bin:${PATH}"
+    working_dir: /app
+    stdin_open: true
+    tty: true
+
+volumes:
+  bundle:

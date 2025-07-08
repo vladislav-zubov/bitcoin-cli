@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+
+Bundler.require
+
+require_relative '../config/application'
+
+module BitcoinCLI
+  module Commands
+    extend Dry::CLI::Registry
+
+    register 'version', ::Commands::Version, aliases: ['v', '-v', '--version']
+    register 'create-wallet', ::Commands::CreateWallet
+    register 'get-balance', ::Commands::GetBalance
+    register 'send-to-address', ::Commands::SendToAddress
+  end
+end
+
+Dry::CLI.new(BitcoinCLI::Commands).call

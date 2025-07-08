@@ -1,0 +1,12 @@
+Style/Documentation:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 20
+Metrics/MethodLength:
+  Max: 20
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+Layout/LineLength:
+  Exclude:
+    - 'spec/**/*'
